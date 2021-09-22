@@ -23,14 +23,17 @@ class LoginPageHelper(BasePage):
         return is_ex
 
     def setLogin(self, login):
+        self.ajax()
         search_field = self.find_element(LoginPageLocator.USERNAME)
         search_field.click()
+        self.ajax()
         search_field.send_keys(login)
         return search_field
 
     def setPass(self, passw):
         search_field = self.find_element(LoginPageLocator.USERNAME)
         search_field.click()
+        self.ajax()
         search_field.send_keys(passw)
         return search_field
 
