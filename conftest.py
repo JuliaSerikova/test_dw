@@ -21,7 +21,7 @@ def browser():
     cap = DesiredCapabilities.CHROME
     cap = {
         "browserName": "chrome",
-        "browserVersion": "80.0",
+        "browserVersion": "92.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": False
@@ -29,7 +29,7 @@ def browser():
     }
 
     driver = webdriver.Remote(
-        command_executor="http://192.168.166.115:4444/wd/hub",
+        command_executor="http://localhost:4444/wd/hub",
         desired_capabilities=cap)
 
     driver.set_page_load_timeout(60)
