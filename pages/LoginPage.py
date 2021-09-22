@@ -33,10 +33,10 @@ class LoginPageHelper(BasePage):
         return search_field
 
     def setPass(self, passw):
-        search_field = self.find_element(LoginPageLocator.USERNAME)
+        search_field = self.find_element(LoginPageLocator.USERPASS)
         search_field.click()
-        search_field.sendKeys(Keys.CONTROL + "a")
-        search_field.sendKeys(Keys.DELETE)
+        search_field.send_keys(Keys.CONTROL + "a")
+        search_field.send_keys(Keys.DELETE)
         self.ajax()
         search_field.send_keys(passw)
         return search_field
