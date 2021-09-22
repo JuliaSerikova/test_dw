@@ -15,13 +15,17 @@ def test_login(browser):
     login_page.setPass(USER_PASS)
     login_page.setTerms()
     login_page.loginClick()
-
+    browser.driver.save_screenshot("123.png")
     log.info("finish collector")
 
 
-# def test_login2(browser):
-#     log.info("start collector")
-#     login_page = LoginPageHelper(browser)
-#     login_page.go_to_site()
-#     time.sleep(15)
-#     log.info("finish collector")
+def test_login2(browser):
+    log.info("start collector")
+    login_page = LoginPageHelper(browser)
+    login_page.go_to_site()
+    login_page.setLogin(USER_MAIL)
+    login_page.setPass(USER_PASS)
+    login_page.setTerms()
+    login_page.loginClick()
+    browser.driver.save_screenshot("234.png")
+    log.info("finish collector")
