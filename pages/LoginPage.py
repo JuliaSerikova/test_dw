@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from pages.BaseApp import BasePage
 
@@ -25,6 +26,7 @@ class LoginPageHelper(BasePage):
     def setLogin(self, login):
         self.ajax()
         search_field = self.find_element(LoginPageLocator.USERNAME)
+
         search_field.click()
         self.ajax()
         search_field.send_keys(login)
@@ -33,6 +35,8 @@ class LoginPageHelper(BasePage):
     def setPass(self, passw):
         search_field = self.find_element(LoginPageLocator.USERNAME)
         search_field.click()
+        search_field.sendKeys(Keys.CONTROL + "a")
+        search_field.sendKeys(Keys.DELETE)
         self.ajax()
         search_field.send_keys(passw)
         return search_field
