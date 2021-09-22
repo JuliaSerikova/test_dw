@@ -15,7 +15,7 @@ def test_login(browser):
     login_page.setPass(USER_PASS)
     login_page.setTerms()
     login_page.loginClick()
-    browser.driver.save_screenshot("123.png")
+    browser.save_screenshot("123.png")
     log.info("finish collector")
 
 
@@ -27,5 +27,5 @@ def test_login2(browser):
     login_page.setPass(USER_PASS)
     login_page.setTerms()
     login_page.loginClick()
-    browser.driver.save_screenshot("234.png")
+    browser.save_screenshot("234.png")
     log.info("finish collector")
