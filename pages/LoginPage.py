@@ -1,6 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 
 from pages.BaseApp import BasePage
 
@@ -11,6 +10,7 @@ class LoginPageLocator:
     CHBX_TERM1 = (By.ID, "checkbox-rule")
     CHBX_TERM2 = (By.ID, "checkbox-privacy")
     CHBX_TERM3 = (By.ID, "checkbox-copyright")
+    JU_BTN = (By.XPATH, "//div/div/a")
 
 
 class LoginPageHelper(BasePage):
@@ -24,9 +24,7 @@ class LoginPageHelper(BasePage):
         return is_ex
 
     def setLogin(self, login):
-        self.ajax()
         search_field = self.find_element(LoginPageLocator.USERNAME)
-
         search_field.click()
         self.ajax()
         search_field.send_keys(login)
@@ -35,8 +33,6 @@ class LoginPageHelper(BasePage):
     def setPass(self, passw):
         search_field = self.find_element(LoginPageLocator.USERPASS)
         search_field.click()
-        search_field.send_keys(Keys.CONTROL + "a")
-        search_field.send_keys(Keys.DELETE)
         self.ajax()
         search_field.send_keys(passw)
         return search_field
@@ -52,6 +48,10 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocator.CHBX_TERM3, time=3).click()
         self.ajax()
         pass
+
+    def jupiterClick(self):
+        return self.find_element(LoginPageLocator.JU_BTN, time=3).click()
+
 
 
 
